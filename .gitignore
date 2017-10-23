@@ -1,0 +1,7 @@
+# dist
+bin
+pkg
+
+# tools
+vendor
+debug

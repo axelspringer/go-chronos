@@ -1,0 +1,8 @@
+{
+  "generator-go-lang": {
+    "promptValues": {
+      "app": "go-chronos",
+      "goPkg": true
+    }
+  }
+}
