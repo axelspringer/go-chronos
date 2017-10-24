@@ -15,7 +15,7 @@
 package chronos
 
 const (
-	ChronosAPI            = "localhost:8080/v1/scheduler/"
+	ChronosAPI            = "v1/scheduler/"
 	ChronosAPIJobs        = "jobs"
 	ChronosAPIJobsSearch  = "jobs/search"
 	ChronosAPIJob         = "job/"

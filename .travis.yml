@@ -1,0 +1,26 @@
+language: go
+
+branches:
+  only:
+    - master
+
+before_cache:
+  - rm -rf $GOPATH/src/github.com/GoogleCloudPlatform/golang-samples/*
+  - rm -rf $GOPATH/pkg/**/github.com/GoogleCloudPlatform/golang-samples
+
+cache:
+  directories:
+    - $GOPATH/src
+    - $GOPATH/pkg
+
+install:
+- make deps
+- make restore
+- export CI=TRAVIS # for gotest to force colors
+
+go: 
+  - 1.9
+  - release
+
+script:
+  - go test -v ./...

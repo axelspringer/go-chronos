@@ -23,7 +23,7 @@ import (
 )
 
 func main() {
-	chronosURL := "https://chronos.tortuga.services/v1/scheduler/"
+	chronosURL := "https://localhost"
 
 	httpClient := &http.Client{}
 

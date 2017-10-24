@@ -22,17 +22,12 @@ import (
 
 // New returns a new Client
 func New(chronosURL string, httpClient *http.Client) *Client {
-	// if there is no url to Chronos set
-	if chronosURL == "" {
-		chronosURL = ChronosAPI
-	}
-
 	return mustNew(&chronosURL, httpClient)
 }
 
 // mustNew wraps the creation of a new Client
 func mustNew(chronosURL *string, httpClient *http.Client) *Client {
-	base := sling.New().Client(httpClient).Base(*chronosURL)
+	base := sling.New().Client(httpClient).Base(*chronosURL).Path(ChronosAPI)
 
 	return &Client{
 		sling: base,
