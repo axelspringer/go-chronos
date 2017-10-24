@@ -16,6 +16,10 @@ go-chronos is a Go library for the [Chronos REST API](https://mesos.github.io/ch
 * List Jobs
 * Marking a Job as successful
 
+## Documentation
+
+You can find the documentation hosted on [godoc.org](https://godoc.org/github.com/axelspringer/go-chronos).
+
 ## Install
 
 ```
@@ -35,4 +39,4 @@ make deps && make restore
 ```
 
 ## License
-[MIT](/LICENSE)
+[Apache 2.0](/LICENSE)

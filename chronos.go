@@ -20,7 +20,13 @@ import (
 	"github.com/dghubble/sling"
 )
 
-// New returns a new Client
+// New returns a new Client. If you provide an URL. For example,#
+//
+//		chronosURL := "https://localhost"
+// 		httpClient := &http.Client{}
+// 		chronosClient := chronos.New(chronosURL, httpClient)
+//
+// chronosURL: is the URL of your Chronos with a slash at the end.
 func New(chronosURL string, httpClient *http.Client) *Client {
 	return mustNew(&chronosURL, httpClient)
 }
