@@ -19,8 +19,8 @@ install:
 - export CI=TRAVIS # for gotest to force colors
 
 go: 
+  - 1.8
   - 1.9
-  - release
 
 script:
   - go test -v ./...
