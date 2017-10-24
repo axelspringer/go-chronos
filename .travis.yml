@@ -4,10 +4,6 @@ branches:
   only:
     - master
 
-before_cache:
-  - rm -rf $GOPATH/src/github.com/GoogleCloudPlatform/golang-samples/*
-  - rm -rf $GOPATH/pkg/**/github.com/GoogleCloudPlatform/golang-samples
-
 cache:
   directories:
     - $GOPATH/src
