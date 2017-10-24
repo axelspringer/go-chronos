@@ -38,12 +38,6 @@ var _ = Describe("Jobs", func() {
 		testJobs = make([]*chronos.Job, 0)
 		testJobs = append(testJobs, testJob)
 
-		mux.HandleFunc("/v1/scheduler/jobs", func(w http.ResponseWriter, r *http.Request) {
-			Ω(r.Method).Should(Equal("GET"))
-			w.Header().Set("Content-Type", "application/json")
-			handleJSONEncode(w, testJobs)
-		})
-
 		client = chronos.New("https://localhost/", httpClient)
 	})
 
@@ -55,7 +49,32 @@ var _ = Describe("Jobs", func() {
 		var jobs *[]chronos.Job
 
 		BeforeEach(func() {
+			mux.HandleFunc("/v1/scheduler/jobs", func(w http.ResponseWriter, r *http.Request) {
+				Ω(r.Method).Should(Equal("GET"))
+				w.Header().Set("Content-Type", "application/json")
+				handleJSONEncode(w, testJobs)
+			})
+
 			jobs, _, _ = client.Jobs.List()
+		})
+
+		It("should contain 1 job", func() {
+			Ω(*jobs).Should(HaveLen(1))
+		})
+	})
+
+	Describe("Search Jobs", func() {
+		var jobs *[]chronos.Job
+
+		BeforeEach(func() {
+			mux.HandleFunc("/v1/scheduler/jobs/search", func(w http.ResponseWriter, r *http.Request) {
+				Ω(r.Method).Should(Equal("GET"))
+				Ω(r.URL.Query()["name"][0]).Should(Equal("demo"))
+				w.Header().Set("Content-Type", "application/json")
+				handleJSONEncode(w, testJobs)
+			})
+
+			jobs, _, _ = client.Jobs.Search(&chronos.JobsSearchParams{Name: "demo"})
 		})
 
 		It("should contain 1 job", func() {
