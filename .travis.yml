@@ -1,22 +1,19 @@
 language: go
-
 branches:
   only:
-    - master
-
+  - master
 cache:
   directories:
-    - $GOPATH/src
-    - $GOPATH/pkg
-
+  - "$GOPATH/src"
+  - "$GOPATH/pkg"
 install:
 - make deps
-- make restore
-- export CI=TRAVIS # for gotest to force colors
-
-go: 
-  - 1.8
-  - 1.9
-
+- export CI=TRAVIS
+go:
+- 1.8
+- 1.9
 script:
-  - make ci
+- make ci
+notifications:
+  slack:
+    secure: V0rogMB7vu/MrA/73KTPRl8zu3hqMNb2yq3/cu7q4xEN8eJ5hvt1MSiHO6FDIHAj4FAl92dtGY46yBKi+ejzWecXRFq1W0RGYnDRezmQ9nZjs5TgaNepXgJMM7RQMGprzkto89XfM5LlxFENPJC34M63TQ2TrfNBJqHsbeQwf+i6sGIIDZ6y8c2D1klYKphovoutjMUUN3IFPfCNYEaXxwGNFeCPkV00lDekNt7VQjSrE9Eg7d08LVwXcdnGhc2QuR5bTRBR5LJUTRQH0Qi0uJIHwiaGlfaEVusG8PezCUWeXeHRgNCy+s/IHnyLo6bzIT8H1ZdKoJUj1wqZJkZJC8u0eSSKwoHy769W/ygfahX/s1RMzMOKS/LM7ChhHfdAYCzyQ7O51+yATL+LifkmIR0RANz5AN6kBaAyRxZiU8egmIIP70uBRHB74LiKXNvXys5tE/DKgyL26vK9CXAJatemits6UPbmVoDqY9/1qPMKM7g4CtUZMGBt+/9weOCpdOsKYEdfUOmzNcf2bnb+CnuWWjaqiXbhZJxR4lh8hys8JYvFxmSx172sGvafU6jauRGrsR4yU10kiyE/Kqyq5oDuAqnu3ZhD0jTlBztuoat10K4Rao7QSL+mLtHOUATxsTPtRqP0EDPQDsUqfpDJjEb1Ioj5MzBBMXcmEz66KsE=

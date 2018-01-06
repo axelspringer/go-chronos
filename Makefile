@@ -6,6 +6,7 @@ help:
 	@echo 'Usage:'
 	@echo '    make deps     		Install go deps.'
 	@echo '    make restore  		Restore all dependencies.'
+	@echo '    make test  			Runs tests.'
 	@echo '    make clean    		Clean the directory tree.'
 	@echo
 
