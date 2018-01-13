@@ -96,18 +96,19 @@ type JobStartParams struct {
 type NetworkInfo []map[string]string
 
 // Volume contains information about a container volume
-type Volume []map[string]string
+type Volume map[string]string
 
 // Parameter contains information about parameter
 type Parameter []map[string]string
 
 // Container contains a Mesos container description
 type Container struct {
-	Type         string        `json:"type,omitempty"`
-	Image        string        `json:"image,omitempty"`
-	Network      string        `json:"network,omitempty"`
-	NetworkName  string        `json:"networkName,omitempty"`
-	NetworkInfos []NetworkInfo `json:"networkInfos,omitempty"`
-	Volumes      []Volume      `json:"volumes,omitempty"`
-	Parameters   []Parameter   `json:"parameters,omitempty"`
+	Type           string        `json:"type,omitempty"`
+	Image          string        `json:"image,omitempty"`
+	ForcePullImage bool          `json:"forcePullImage, omitempty"`
+	Network        string        `json:"network,omitempty"`
+	NetworkName    string        `json:"networkName,omitempty"`
+	NetworkInfos   []NetworkInfo `json:"networkInfos,omitempty"`
+	Volumes        []Volume      `json:"volumes,omitempty"`
+	Parameters     []Parameter   `json:"parameters,omitempty"`
 }
