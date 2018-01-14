@@ -24,8 +24,8 @@ type Client struct {
 	Job  *JobService
 }
 
-// ChronosError contains an error from Chronos API
-type ChronosError struct {
+// Error contains an error from Chronos API
+type Error struct {
 }
 
 // Argument contains an job argument

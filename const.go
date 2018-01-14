@@ -15,11 +15,18 @@
 package chronos
 
 const (
-	ChronosAPI            = "v1/scheduler/"
-	ChronosAPIJobs        = "jobs"
-	ChronosAPIJobsSearch  = "jobs/search"
-	ChronosAPIJob         = "job/"
+	// ChronosAPI is a constant representing the Chronos REST API entrypoint
+	ChronosAPI = "v1/scheduler/"
+	// ChronosAPIJobs is a constant representing the jobs resource
+	ChronosAPIJobs = "jobs"
+	// ChronosAPIJobsSearch is a constant representing the search resource
+	ChronosAPIJobsSearch = "jobs/search"
+	// ChronosAPIJob is a constant representing the job resource
+	ChronosAPIJob = "job/"
+	// ChronosAPIJobTaskKill is a constant representing the task resource
 	ChronosAPIJobTaskKill = "task/kill/"
-	ChronosAPIJobSuccess  = "success/"
-	ChronosAPIIso8601     = "iso8601"
+	// ChronosAPIJobSuccess is a constant representing the jobs success resource
+	ChronosAPIJobSuccess = "success/"
+	// ChronosAPIIso8601 is a constant representing the spec for date format
+	ChronosAPIIso8601 = "iso8601"
 )

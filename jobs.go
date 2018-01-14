@@ -30,7 +30,7 @@ func newJobsService(sling *sling.Sling) *JobsService {
 // List returns the list of jobs
 func (j *JobsService) List() (*[]Job, *http.Response, error) {
 	jobs := new([]Job)
-	chronosError := new(ChronosError)
+	chronosError := new(Error)
 	resp, err := j.sling.New().Get("").Receive(jobs, chronosError)
 
 	return jobs, resp, err
@@ -40,7 +40,7 @@ func (j *JobsService) List() (*[]Job, *http.Response, error) {
 // params: are the search parameters for the job
 func (j *JobsService) Search(params *JobsSearchParams) (*[]Job, *http.Response, error) {
 	jobs := new([]Job)
-	ChronosError := new(ChronosError)
+	ChronosError := new(Error)
 	resp, err := j.sling.New().Get(ChronosAPIJobsSearch).QueryStruct(params).Receive(jobs, ChronosError)
 	defer resp.Body.Close()
 
