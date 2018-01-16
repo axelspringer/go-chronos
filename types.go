@@ -99,7 +99,11 @@ type JobStartParams struct {
 type NetworkInfo []map[string]string
 
 // Volume contains information about a container volume
-type Volume map[string]string
+type Volume struct {
+	HostPath      string `json:"hostPath"`
+	ContainerPath string `json:"containerPath"`
+	Mode          string `json:"mode"`
+}
 
 // Parameter contains information about parameter
 type Parameter struct {
