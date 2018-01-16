@@ -71,9 +71,9 @@ type Job struct {
 	ErrorCount             int                   `json:"errorCount,omitempty"`
 	LastSuccess            string                `json:"lastSuccess,omitempty"`
 	LastError              string                `json:"lastError,omitempty"`
-	CPUs                   float32               `json:"cpus,omitempty"`
-	Disk                   float32               `json:"disk,omitempty"`
-	Mem                    float32               `json:"mem,omitempty"`
+	CPUs                   float64               `json:"cpus,omitempty"`
+	Disk                   float64               `json:"disk,omitempty"`
+	Mem                    float64               `json:"mem,omitempty"`
 	Disabled               bool                  `json:"disabled,omitempty"`
 	SoftError              bool                  `json:"softError,omitempty"`
 	DataProcessingJobType  bool                  `json:"dataProcessingJobType,omitempty"`
