@@ -28,9 +28,6 @@ type Client struct {
 type Error struct {
 }
 
-// Argument contains an job argument
-type Argument []string
-
 // EnvironmentVariable contains a single env kv pair
 type EnvironmentVariable struct {
 	Key   string `json:"name,omitempty"`
@@ -83,7 +80,7 @@ type Job struct {
 	ErrorsSinceLastSuccess int                   `json:"errorsSinceLastSuccess,omitempty"`
 	URIs                   []string              `json:"uris,omitempty"`
 	EnvironmentVariables   []EnvironmentVariable `json:"environmentVariables,omitempty"`
-	Arguments              []Argument            `json:"arguments,omitempty"`
+	Arguments              []string              `json:"arguments,omitempty"`
 	HighPriority           bool                  `json:"highPriority,omitempty"`
 	RunAsUser              string                `json:"runAsUser,omitempty"`
 	Container              *Container            `json:"container,omitempty"`
