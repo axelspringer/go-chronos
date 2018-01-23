@@ -1,0 +1,123 @@
+{
+    "name": "your-job-name",
+    "command": "sh /run/my/jobscript",
+    "shell": true,
+    "executor": "mesos",
+    "executorFlags": "-v",
+    "taskInfoData": "taskInfoData",
+    "retries": 4,
+    "owner": "user",
+    "ownerName": "user",
+    "description": "test",
+    "disabled": true,
+    "concurrent": true,
+    "softError": true,
+    "dataProcessingJobType": true,
+    "successCount": 42,
+    "errorCount": 1,
+    "lastSuccess": "2013-03-15T13:02:14.243Z",
+    "lastError": "2013-03-15T13:02:14.243Z",
+    "cpus": 0.5,
+    "disk": 100000,
+    "mem": 512,
+    "errorsSinceLastSuccess": 1,
+    "uris": [
+        "file:///executor.tar.gz"
+    ],
+    "fetch": [
+        {
+            "uri": "https://url-to-file",
+            "cache": true,
+            "extract": true,
+            "executable": true,
+            "output_file": "/my/extract/target"
+        }
+    ],
+    "arguments": [
+        "-verbose",
+        "-debug"
+    ],
+    "environmentVariables": [
+        {
+            "name": "JVMOPTS",
+            "value": "-Xmx1000m"
+        },
+        {
+            "name": "JAVA_LIBRARY_PATH",
+            "value": "/usr/local/lib"
+        }
+    ],
+    "highPriority": true,
+    "runAsUser": "root",
+    "container": {
+        "type": "DOCKER",
+        "image": "registry-of-choice/jobimage:latest",
+        "forcePullImage": true,
+        "network": "BRIDGE",
+        "networkInfos": [
+            {
+                "name": "network1",
+                "protocol": "tcp",
+                "labels": [
+                    {
+                        "key": "label1",
+                        "value": "label1 value"
+                    }
+                ],
+                "portMappings": [
+                    { 
+                        "containerPort": 8300, 
+                        "hostPort": 8300, 
+                        "protocol": "tcp" 
+                    },
+                    { 
+                        "containerPort": 8301, 
+                        "hostPort": 8301, "protocol": 
+                        "tcp" 
+                    },
+                    { 
+                        "containerPort": 8301, 
+                        "hostPort": 8301, 
+                        "protocol": "udp" 
+                    },
+                    { 
+                        "containerPort": 8302, 
+                        "hostPort": 8302, 
+                        "protocol": "tcp" 
+                    },
+                    { 
+                        "containerPort": 8302, 
+                        "hostPort": 8302, 
+                        "protocol": "udp" 
+                    }
+                ]
+            }
+        ],
+        "volumes": [
+            {
+                "containerPath": "/data/test-rexray-volume",
+                "external": {
+                    "name": "my-test-vol",
+                    "provider": "dvdi",
+                    "options": [
+                        {
+                            "key": "dvdi/driver",
+                            "value": "rexray" 
+                        }
+                    ]
+                },
+                "mode": "RW"
+            },
+            {
+                "containerPath": "/containerpath",
+                "hostPath": "/hostpath",
+                "mode": "RW"
+            }
+        ]
+    },
+    "constraints": [
+        ["rack", "EQUALS", "rack-1"],
+        ["rack", "LIKE", "rack-[1-3]"],
+        ["rack", "UNLIKE", "rack-[1-3]"]
+    ]
+}

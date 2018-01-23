@@ -1,0 +1,34 @@
+{
+    "name": "camus_kafka2hdfs",
+    "command": "/srv/data-infra/kafka/camus/kafka_hdfs_job.bash",
+    "arguments": [
+        "-verbose",
+        "-debug"
+    ],
+    "epsilon": "PT30M",
+    "retries": 2,
+    "owner": "bofh@your-company.com",
+    "successCount": 190,
+    "errorCount": 3,
+    "lastSuccess": "2014-03-08T16:57:17.507Z",
+    "lastError": "2014-03-01T00:10:15.957Z",
+    "cpus": 1.0,
+    "disk": 10240,
+    "mem": 1024,
+    "fetch": [
+        {
+            "uri": "https://url-to-file"
+        }
+    ],
+    "schedule": "R/2014-03-08T20:00:00.000Z/PT2H",
+    "environmentVariables": [
+        {
+            "name": "JVMOPTS",
+            "value": "-Xmx1000m"
+        },
+        {
+            "name": "JAVA_LIBRARY_PATH",
+            "value": "/usr/local/lib"
+        }
+    ]
+}

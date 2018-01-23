@@ -12,7 +12,7 @@ help:
 	@echo
 
 test: ## run tests, except integration tests
-	@go test ${RACE} ${PACKAGES}
+	@go test -v ${RACE} ${PACKAGES}
 
 deps:
 	go get -u github.com/tcnksm/ghr
