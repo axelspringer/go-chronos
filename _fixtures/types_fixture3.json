@@ -72,8 +72,8 @@
                     },
                     { 
                         "containerPort": 8301, 
-                        "hostPort": 8301, "protocol": 
-                        "tcp" 
+                        "hostPort": 8301, 
+                        "protocol": "tcp" 
                     },
                     { 
                         "containerPort": 8301, 
