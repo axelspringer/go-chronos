@@ -30,7 +30,9 @@ var _ = Describe("Types", func() {
 			Ω(fixData).ShouldNot(BeEmpty())
 
 			job := &chronos.Job{}
-			Ω(json.Unmarshal([]byte(fixData), job)).Should(BeNil())
+			err := json.Unmarshal([]byte(fixData), job)
+
+			Ω(err).Should(BeNil())
 
 			b, err := json.Marshal(job)
 			Ω(err).Should(BeNil())
@@ -43,7 +45,9 @@ var _ = Describe("Types", func() {
 			Ω(fixData).ShouldNot(BeEmpty())
 
 			job := &chronos.Job{}
-			Ω(json.Unmarshal([]byte(fixData), job)).Should(BeNil())
+			err := json.Unmarshal([]byte(fixData), job)
+
+			Ω(err).Should(BeNil())
 
 			b, err := json.Marshal(job)
 			Ω(err).Should(BeNil())
@@ -56,7 +60,9 @@ var _ = Describe("Types", func() {
 			Ω(fixData).ShouldNot(BeEmpty())
 
 			job := &chronos.Job{}
-			Ω(json.Unmarshal([]byte(fixData), job)).Should(BeNil())
+			err := json.Unmarshal([]byte(fixData), job)
+
+			Ω(err).Should(BeNil())
 
 			b, err := json.Marshal(job)
 			Ω(err).Should(BeNil())
