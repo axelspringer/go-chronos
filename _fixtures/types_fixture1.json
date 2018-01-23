@@ -1,0 +1,15 @@
+{
+    "async": true,
+    "command": "bash -x /srv/data-infra/jobs/hive_query.bash run_hive hostings-earnings-summary",
+    "epsilon": "PT30M",
+    "errorCount": 1,
+    "lastSuccess": "2013-03-15T13:02:14.243Z",
+    "name": "hostings_earnings_summary",
+    "owner": "bob@airbnb.com",
+    "parents": [
+        "db_export-airbed_hostings",
+        "db_export-airbed_reservation2s"
+    ],
+    "retries": 2,
+    "successCount": 100
+}
